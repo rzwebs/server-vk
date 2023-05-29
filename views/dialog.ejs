@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Диалог с <%= user.first_name %> <%= user.last_name %></title>
+  <link rel="stylesheet" type="text/css" href="/views/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+    <style>
+        .button_left {
+            background-image: url('/views/743654.png');
+            border: none;
+            width: 30px; 
+            height: 30px; 
+            background-position: center center; 
+            background-size: cover; 
+            background-color: transparent;
+            display: block;
+        }
+
+        .button_left:hover {
+            border: solid 1px black;
+        }
+    </style>
+  <div class="container">
+    <a class="button_left" href="/"></a>
+    <h1 class="title">Диалог с <%= user.first_name %> <%= user.last_name %></h1>
+    <div id="messagesContainer" class="message-container">
+      <% messages.forEach(function(message) { %>
+        <div class="message">
+            
+          <p class="message-text"><%= message.text %></p>
+        </div>
+      <% }); %>
+    </div>
+    <form id="messageForm" class="message-form" action="/dialog/<%= user.id %>/send" method="POST">
+      <input type="text" name="message" placeholder="Введите сообщение" class="message-input">
+      <button type="submit" class="message-button">Отправить</button>
+    </form>
+  </div>
+  <script>
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Список диалогов</title>
+  <link rel="stylesheet" type="text/css" href="/views/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Список диалогов</h1>
+    <ul class="dialog-list">
+      <% dialogs.forEach(function(dialog) { %>
+        <li class="dialog-item">
+          <a href="/dialog/<%= dialog.id %>">
+            <div class="dialog-card">
+              <div class="dialog-avatar">
+                <img src="<%= dialog.avatar %>" alt="Аватар">
+              </div>
+              <div class="dialog-info">
+                <h2 class="dialog-name"><%= dialog.name %></h2>
+                <p class="dialog-last-message"><%= dialog.lastMessage %></p>
+                <div>
+                  <%= console.log(dialog) %>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>
